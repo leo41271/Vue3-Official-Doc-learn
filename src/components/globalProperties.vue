@@ -1,0 +1,31 @@
+<script>
+import { defineComponent, onBeforeMount } from 'vue';// 有點詭異的作法XD
+let that = this;
+export default defineComponent({
+    beforeCreate() {
+        that = this;
+    },
+    setup() {
+        // 這邊將不會執行 因為下面有了 // 因其本身就是語法糖 vue會檢驗
+    }
+})
+</script>
+<script setup>
+import { getCurrentInstance, ref } from 'vue';
+// getCurrentInstance 強烈不建議這樣達成
+const cns = getCurrentInstance()
+console.log(cns.appContext.config.globalProperties.myCustomProperty)
+console.log(cns.appContext.config.globalProperties.myCustomMethod)
+
+// 有點詭異的作法XD
+var getFinalGlobal = ref({});
+onBeforeMount(() => {
+    console.log('that', that.myCustomProperty)
+    getFinalGlobal.value = that.myCustomProperty;
+})
+console.log(getFinalGlobal)
+</script>
+<template>
+    {{ myCustomProperty }} <br>
+    {{ getFinalGlobal }}
+</template>

@@ -28,3 +28,7 @@ coverage
 *.sw?
 
 *.tsbuildinfo
+
+# 未上傳
+src/composables/Key.js
+帶整理筆記_不會的.html

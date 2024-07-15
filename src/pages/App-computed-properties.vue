@@ -1,6 +1,6 @@
 <script>
-import ComputedBasic from './components/computed-properties-docs/Computed-Basic.vue'
-import ComputedWritable from './components/computed-properties-docs/Computed-Writable.vue'
+import ComputedBasic from '@/components/computed-properties-docs/Computed-Basic.vue'
+import ComputedWritable from '@/components/computed-properties-docs/Computed-Writable.vue'
 
 export default {
     components: { ComputedBasic, ComputedWritable, },
